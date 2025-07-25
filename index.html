@@ -12,13 +12,13 @@
     if (Hls.isSupported()) {
       var video = document.getElementById('video');
       var hls = new Hls();
-      hls.loadSource('/hls/canal1.m3u8');
+      hls.loadSource('http://127.0.0.1:8080/hls/canal1.m3u8');
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, function () {
         video.play();
       });
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = '/hls/canal1.m3u8';
+      video.src = 'http://127.0.0.1:8080/hls/canal1.m3u8';
       video.addEventListener('loadedmetadata', function () {
         video.play();
       });
